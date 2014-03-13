@@ -8,10 +8,9 @@ get "/posts/new" do
 end
 
 post "/posts" do
-  p params
   tags = Tag.return_tag_objects(params[:tags])
   post = Post.new(params[:post])
-  post.tags << tags
+  post.tags = tags
   if post.save
     redirect to "/posts/#{post.id}"
   else
@@ -20,8 +19,10 @@ post "/posts" do
 end
 
 patch "/posts/:id" do
+  tags = Tag.return_tag_objects(params[:tags])
   post = Post.find(params[:id])
-  if post && post.update(params[:giggles])
+  post.tags = tags
+  if post && post.update(params[:post])
     redirect to "/posts/#{post.id}"
   else
     redirect to "/posts/#{params[:id]}/edit"

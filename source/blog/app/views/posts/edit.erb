@@ -1,6 +1,7 @@
 <form action='/posts/<%= @post.id %>' method='POST'>
-  <input name="giggles[title]" placeholder="title" value='<%= @post.title %>' type='text'>
-  <textarea name="giggles[body]" placeholder="body" type='text'><%= @post.body %></textarea>
+  <input name="post[title]" placeholder="title" value='<%= @post.title %>' type='text'>
+  <textarea name="post[body]" placeholder="body" type='text'><%= @post.body %></textarea>
+  <input name="tags" placeholder="tags(space-separated)" value="<%= @post.tags.map(&:name).join(' ') %>" type='text'>
   <input type="hidden" name="_method" value="PATCH">
   <input type='submit' value='Update!'>
 </form>
