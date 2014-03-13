@@ -2,10 +2,13 @@
   <section>
     <h2><%= @post.title %></h2>
     <p><%= @post.body %></p>
+    <p>Tags:</p>
+    <ul>
+      <% @post.tags.each do |tag| %>
+      <li><a href="/tags/<%= tag.name %>"><%= tag.name %></a></li>
+      <% end %>
   </section>
 </div>
-<label for="post_tags">Tags:</label>
-<input id="post_tags" name="post[tags]" placeholder="tags" >
 <form action='/posts/<%= @post.id %>/edit' method='GET'>
   <input type='submit' value='Edit!'>
 </form>
