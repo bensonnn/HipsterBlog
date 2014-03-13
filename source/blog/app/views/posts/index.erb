@@ -1,12 +1,7 @@
-<div class="container">
-  <header>
-    <h1>Wiskey Tattüs</h1>
-  </header>
-  <ul>
+<ul>
   <% @posts.each do |post| %>
     <li>
       <a href="/posts/<%= post.id %>"><%= post.title %></a>
     </li>
   <% end %>
-  </ul>
-</div>
+</ul>
