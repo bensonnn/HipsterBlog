@@ -16,6 +16,21 @@ post "/posts" do
   end
 end
 
+patch "/posts/:id" do
+  post = Post.find(params[:id])
+  if post && post.update(params[:giggles])
+    redirect to "/posts/#{post.id}"
+  else
+    redirect to "/posts/#{params[:id]}/edit"
+  end
+end
+
+get "/posts/:id/edit" do
+  @post = Post.find(params[:id])
+  erb :"posts/edit"
+end
+
+
 get "/posts/:id" do
   @post = Post.find(params[:id])
   erb :"posts/show"
