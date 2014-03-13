@@ -4,7 +4,8 @@
     <p><%= @post.body %></p>
   </section>
 </div>
-
+<label for="post_tags">Tags:</label>
+<input id="post_tags" name="post[tags]" placeholder="tags" >
 <form action='/posts/<%= @post.id %>/edit' method='GET'>
   <input type='submit' value='Edit!'>
 </form>
