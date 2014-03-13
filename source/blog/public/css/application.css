@@ -1,9 +1,48 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+body {
+  font-family: 'Source Sans Pro', sans-serif;
 }
-th {
-  text-align: left;
+.container {
+  margin: 0 auto;
+  width: 500px;
+}
+
+small.page_no {
+  float: right;
+  color: #ddd;
+}
+h1, h2, h3 {
+  color: #222;
+  font-family:'Bitter', serif;
+}
+h1 {
+  font-size: 46px;
+  font-weight: bold;
+
+}
+header {
+  border-bottom: 1px solid #222;
+}
+section {
+  margin: 20px 0;
+}
+p, blockquote, .footer {
+  color: #444;
+  line-height: 22px;
+  font-size: 16px;
+}
+blockquote {
+  font-style: italic;
+}
+.pagination {
+  background-color: #eee;
+  margin: 10px 0px;
+}
+
+.pagination a {
+  color: #222;
+  text-decoration: none;
+}
+
+.pagination a.disabled {
+  color: #ccc;
 }
