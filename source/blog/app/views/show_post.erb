@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Deep Thought</h1>
+    
+  <h2><%= locals[:post].title %></h2>
+  <div>
+    <p><%= post.body %></p>
+  </div>
+  <p id="tags">Tags:</p>
+  <ul class="tags"><% post.tags.map do |tag| %>
+    <a href="/posts_by_tag/<%=tag.id%>"><li><%= tag.name %></li></a>
+    <% end %>
+  </ul>
+  <p><a href="/">home</a></p>
+</div>

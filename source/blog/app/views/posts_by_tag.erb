@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Thinking Deeply about <%= tag.name %></h1>
+    <ul>
+      <% tagged_posts.each do |post| %>
+        <li><a href="/show/<%=post.id%>"><%= post.title %></a></li>
+      <% end %>  
+    </ul>
+    <a href="/">home</a>
+</div>
