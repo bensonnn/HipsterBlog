@@ -30,6 +30,19 @@ get "/posts/:id/edit" do
   erb :"posts/edit"
 end
 
+delete "/posts/:id" do
+  post = Post.find(params[:id])
+  if post.delete
+    redirect to "/posts"
+  else
+    # what now?
+  end
+end
+
+get "/posts/:id/delete" do
+  @post = Post.find(params[:id])
+  erb :"posts/delete"
+end
 
 get "/posts/:id" do
   @post = Post.find(params[:id])
