@@ -7,4 +7,8 @@ class Tag < ActiveRecord::Base
     string.downcase.split(' ').map{ |tag| Tag.where(name: tag).first_or_create }
   end
 
+  def self.active
+    Tag.all.select { |tag| tag.posts.count > 0 }
+  end
+
 end

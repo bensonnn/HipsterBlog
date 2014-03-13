@@ -1,5 +1,5 @@
 get '/tags' do
-  @tags = Tag.all
+  @tags = Tag.active
   erb :'tags/index'
 end
 
