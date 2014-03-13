@@ -32,3 +32,7 @@ ul {
 #tags {
   display: inline-block;
 }
+
+#hide_me {
+  visibility: hidden;
+}

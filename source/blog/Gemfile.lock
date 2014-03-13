@@ -20,7 +20,12 @@ GEM
     atomic (1.1.15)
     backports (3.6.0)
     builder (3.1.4)
+    byebug (2.7.0)
+      columnize (~> 0.3)
+      debugger-linecache (~> 1.2)
+    columnize (0.3.6)
     daemons (1.1.9)
+    debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     eventmachine (1.0.3)
     faker (1.2.0)
@@ -71,6 +76,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   activesupport
+  byebug
   faker
   pg
   rake
