@@ -9,6 +9,7 @@ gem 'sinatra-contrib'
 
 # Use Thin for our web server
 gem 'thin'
+gem 'byebug'
 
 gem 'activesupport'
 gem 'activerecord'

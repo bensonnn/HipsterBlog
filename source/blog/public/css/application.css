@@ -7,3 +7,32 @@
 th {
   text-align: left;
 }
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
+.tags {
+  display: inline-block;
+}
+
+.tags li {
+  display: inline-block;
+}
+
+.tags a li {
+  text-decoration: underline;
+}
+
+
+#tags {
+  display: inline-block;
+}
+
+#hide_me {
+  visibility: hidden;
+}
