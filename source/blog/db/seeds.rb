@@ -9,4 +9,12 @@ tags.each do |tag|
   tag.posts << posts.sample << posts.sample
 end
 
+require 'csv'
+File.new("db/words.txt", "r").each do |file|
+  file.split(" ").each do |word|
+    Word.create(word: word.downcase)
+  end
+end
+
+
 
