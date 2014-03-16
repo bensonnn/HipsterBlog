@@ -52,3 +52,9 @@ get "/posts/:id" do
   @post = Post.find(params[:id])
   erb :"posts/show"
 end
+
+post "/get_rating" do
+5.to_s
+
+end
+

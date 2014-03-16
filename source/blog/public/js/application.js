@@ -1,7 +1,27 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  // $(".container").hide();
+  // $(".container").fadeIn("fast");
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+
+
+
+  //Hipster rating scale feedback
+
+  $('textarea').keyup( function() {
+
+    var text = $('textarea').val()
+    console.log(text)
+    $.ajax({
+      url: "/get_rating",
+      type: "POST",
+      data: text,
+      success: function(data) {
+        $("#score").text(data)
+      }
+    })
+
+
+  })
+
 });
