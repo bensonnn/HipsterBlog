@@ -19,7 +19,7 @@ module HipsterRater
       end
     end
 
-    def self.hip?(text, count=5)
+    def self.hip?(text, count=1)
       self.word_count(text) >= count
     end
 
