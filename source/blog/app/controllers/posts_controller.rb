@@ -20,7 +20,6 @@ post "/posts" do
   tags = Tag.return_tag_objects(params[:tags])
   post = Post.new(params[:post])
   post.tags = tags
-  post.rating = HipsterRater::Post.hipness(params[:post][:body])
   if post.save
     redirect to "/posts/#{post.id}"
   else
