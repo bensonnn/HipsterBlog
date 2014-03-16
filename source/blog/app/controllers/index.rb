@@ -1,6 +1,7 @@
 enable :session
 
 get '/' do
+  redirect to "/users/#{session[:username]}" if session[:login] == true
   erb :index
 end
 
@@ -36,6 +37,7 @@ post '/new' do
       user.password = password
     end
     session[:username] = username
+    session[:login] = true
     redirect to "/users/#{username}"
   end
 end
