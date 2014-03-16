@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
 
   before_create :salt_and_hash
 
+  def authenticate(password)
+    self.hashword == PasswordHasher.get_hash( password , self.salt )
+  end
+
   private
   def salt_and_hash
     self.salt = PasswordHasher.new_salt
