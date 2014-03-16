@@ -1,0 +1,11 @@
+<h2><%= @tag.name %></h2>
+<ul>
+  <% @tag.posts.each do |post| %>
+    <li>
+      <a href="/posts/<%= post.id %>"><%= post.title %></a>
+    </li>
+  <% end %>
+</ul>
+
+<a href='/posts'>all posts</a>
+<a href='/posts/new'>new post</a>

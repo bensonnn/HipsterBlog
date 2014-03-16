@@ -1,13 +1,6 @@
 class Post < ActiveRecord::Base
-   has_and_belongs_to_many :tags
-  # Remember to create a migration!
+  has_and_belongs_to_many :tags
 
-  # def stuff(tag)
-  #   #tag = :a
-  #   #tags = [:a,:b,:c]
-  #   included = tags.include?(tag)
-  #   Post.where(included)
-  # end
+  validates :body, :presence => true
+  validates :title, :presence => true
 end
-
-

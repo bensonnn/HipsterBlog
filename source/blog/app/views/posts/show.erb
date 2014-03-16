@@ -1,0 +1,21 @@
+<div class="content">
+  <section>
+    <h2><%= @post.title %></h2>
+    <p><%= @post.body %></p>
+    <p>Tags:</p>
+    <ul>
+      <% @post.tags.each do |tag| %>
+      <li><a href="/tags/<%= tag.name %>"><%= tag.name %></a></li>
+      <% end %>
+  </section>
+</div>
+<form action='/posts/<%= @post.id %>/edit' method='GET'>
+  <input type='submit' value='Edit!'>
+</form>
+
+<form action='/posts/<%= @post.id %>' method='POST'>
+  <input type="hidden" name="_method" value="DELETE">
+  <input type='submit' value='Delete!'>
+</form>
+
+<a href='/posts'>all posts</a>
