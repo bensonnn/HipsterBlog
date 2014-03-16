@@ -8,3 +8,5 @@ tags = Array.new(20) { Tag.create(name: Hipster.words.last) }
 tags.each do |tag|
   tag.posts << posts.sample << posts.sample
 end
+
+
