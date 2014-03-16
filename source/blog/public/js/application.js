@@ -15,7 +15,7 @@ $(document).ready(function() {
     $.ajax({
       url: "/get_rating",
       type: "POST",
-      data: text,
+      data: {text: text},
       success: function(data) {
         $("#score").text(data)
       }
