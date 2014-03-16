@@ -75,3 +75,8 @@ ul {
 #hide_me {
   visibility: hidden;
 }
+
+#logout {
+  display: block;
+  margin-top: 100px;
+}
