@@ -12,11 +12,12 @@ post '/' do
       session[:username] = username
       redirect to "/users/#{username}"
     else
-      'your password was incorrect'
+      session[:password_error] = 'incorrect password'
     end
   else
-    "#{username} was not found"
+    session[:username_error] = 'username not found'
   end
+  redirect to '/'
 end
 
 get '/new' do
@@ -27,7 +28,8 @@ post '/new' do
   username = params[:login][:username].downcase
   password = params[:login][:password]
   if User.find_by_username(username)
-    'that username is already taken!'
+    session[:username_error] = 'username already taken'
+    redirect to '/new'
   else
     User.create(username: username) do |user|
       user.password = password
