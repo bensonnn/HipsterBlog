@@ -2,7 +2,7 @@
   <section>
     <h2 class="inline"><%= @post.title %></h2>
     <p><%= @post.body %></p>
-    <p>Rating: <%= @post.rating unless @post.rating.nil? %></p>
+    <p>Hipster rating: <%= @post.rating unless @post.rating.nil? %></p>
     <p class="inline">Tags:</p>
     <ul class="inline">
       <% @post.tags.each do |tag| %>
