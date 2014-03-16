@@ -10,7 +10,7 @@ post '/' do
   if user = User.find_by_username(username)
     if user.authenticate(password)
       session[:username] = username
-      redirect '/posts'
+      redirect to "/users/#{username}"
     else
       'your password was incorrect'
     end
@@ -33,15 +33,6 @@ post '/new' do
       user.password = password
     end
     session[:username] = username
-    redirect to "/posts"
-  end
-end
-
-get '/:username' do
-  if user = User.find_by_username(params[:username])
-    @posts = user.posts
-    erb :"posts/index"
-  else
-    redirect '/posts'
+    redirect to "/users/#{username}"
   end
 end
