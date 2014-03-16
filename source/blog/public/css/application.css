@@ -81,7 +81,12 @@ ul {
   visibility: hidden;
 }
 
+
 #logout {
   display: block;
   margin-top: 100px;
+}
+
+.float_right {
+  float: right;
 }
