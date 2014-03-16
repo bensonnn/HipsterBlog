@@ -10,6 +10,7 @@ module HipsterRater
   class Post
     def self.hipness(text)
       case self.word_count(text)
+      when 0 then "Sad"
       when 1 then "Corny"
       when 2 then "Rightous"
       when 3 then "Yeah, man"
@@ -25,7 +26,7 @@ module HipsterRater
     private
 
     def self.word_count(text)
-      text.split(" ").count{ |word| Word.where("word = ?", word).any? }
+      text.gsub(/,/, " ").downcase.split(" ").count{ |word| Word.where("word = ?", word).any? }
     end
 
   end
@@ -33,4 +34,4 @@ end
 
 # hip_text = "Synth drinking vinegar next level  post-ironic messenger bag master cleanse keytar pug  Stumptown mustache chillwave Bushwick wolf  PBR beard deep v fingerstache tofu skateboard  Fixie cornhole freegan  Wes Anderson yr actually Cosby sweater PBR shabby chic stumptown  Meh plaid pop-up"
 
-# HipsterRater::Post.hip?(hip_text)
+# HipsterRater::Post.hipness(hip_text)
