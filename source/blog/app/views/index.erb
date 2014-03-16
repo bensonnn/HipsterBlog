@@ -1,14 +1,18 @@
 <h2>User Login</h2>
+<%if session[:login_error] %>
+  <span>you must be logged in</span>
+  <% session[:login_error] = nil %>
+<% end %>
 <form action='/' method='POST'>
   <input name="login[username]" placeholder="username" type='text'>
   <%if session[:username_error] %>
-    <span><%= session[:username_error] %></span>
+    <span>username not found</span>
     <% session[:username_error] = nil %>
   <% end %>
   <br>
   <input name="login[password]" placeholder="password" type='text'>
   <%if session[:password_error] %>
-    <span><%= session[:password_error] %></span>
+    <span>incorrect password</span>
     <% session[:password_error] = nil %>
   <% end %>
   <br>

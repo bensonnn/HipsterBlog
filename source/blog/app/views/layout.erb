@@ -16,6 +16,9 @@
         <h1>Wiskey Tattüs</h1>
       </header>
       <%= yield %>
+    <% if session[:login] %>
+      <a id='logout' href='/logout'>logout</a>
+    <% end %>
     </div>
   </body>
 </html>

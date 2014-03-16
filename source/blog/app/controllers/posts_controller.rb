@@ -1,4 +1,13 @@
+before '/posts' do
+  redirect to '/' unless logged_in?
+end
+
+before '/posts/*' do
+  redirect to '/' unless logged_in?
+end
+
 get "/posts" do
+  p session
   @posts = Post.all
   erb :"posts/index"
 end
