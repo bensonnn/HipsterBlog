@@ -9,24 +9,23 @@ module HipsterRater
 
   class Post
     def self.hipness(text)
-      case self.word_count(text)
-      when 0 then "Sad"
-      when 1 then "Corny"
-      when 2 then "Rightous"
-      when 3 then "Yeah, man"
-      when 4 then "Solid"
-      else "Too much"
+      case self.raw_score(text)
+      when (-100..-1) then 'Banned'
+      when (0..4) then "Sad"
+      when (5..9) then "Corny"
+      when (10..19) then "Rightous"
+      when (20..34) then "Yeah, man"
+      when (35..49) then "Solid"
+      when (50..100) then "Too much"
       end
     end
 
-    def self.hip?(text, count=1)
-      self.word_count(text) >= count
-    end
-
-    private
-
-    def self.word_count(text)
-      text.gsub(/,/, " ").downcase.split(" ").count{ |word| Word.where("word = ?", word).any? }
+    def self.raw_score(text)
+      words_array = text.gsub(/,/, " ").downcase.split(" ")
+      word_count = words_array.count
+      hip = words_array.count{ |word| Word.where(word: word, is_hipster: true).any? }
+      unhip = words_array.count{ |word| Word.where(word: word, is_hipster: false).any? }
+      word_count == 0 ? 0 : (hip - unhip) * 100 / word_count
     end
 
   end

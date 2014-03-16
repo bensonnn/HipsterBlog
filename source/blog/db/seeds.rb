@@ -12,10 +12,14 @@ tags.each do |tag|
 end
 
 require 'csv'
-File.new("db/words.txt", "r").each do |file|
-  file.split(" ").each do |word|
-    Word.create(word: word.downcase)
+File.new("db/words.txt", "r").each do |line|
+  line.split(" ").each do |word|
+    Word.create(word: word.downcase, is_hipster: true)
   end
+end
+
+File.new("db/bad_words.txt", "r").each do |line|
+  Word.create(word: line.downcase.chomp, is_hipster: false)
 end
 
 User.create(username: 'tonyta') {|user| user.password = '1234'}
