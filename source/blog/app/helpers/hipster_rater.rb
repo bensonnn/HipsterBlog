@@ -8,7 +8,6 @@ module HipsterRater
   end
 
   class Post
-
     def self.hipness(text)
       case self.word_count(text)
       when 1 then "Corny"
