@@ -21,6 +21,7 @@ h1 {
 }
 header {
   border-bottom: 1px solid #222;
+  margin-top: 80px;
 }
 section {
   margin: 20px 0;
@@ -53,6 +54,10 @@ li {
 
 ul {
   padding: 0;
+}
+
+.inline {
+  display: inline;
 }
 
 .tags {
