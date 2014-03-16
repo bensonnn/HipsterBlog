@@ -1,6 +1,11 @@
 <h2>New User</h2>
 <form action='/new' method='POST'>
-  <input name="login[username]" placeholder="username" type='text'><br>
+  <input name="login[username]" placeholder="username" type='text'>
+  <%if session[:username_error] %>
+    <span><%= session[:username_error] %></span>
+    <% session[:username_error] = nil %>
+  <% end %>
+  <br>
   <input name="login[password]" placeholder="password" type='text'><br>
   <input type='submit' value='Register!'>
 </form>
