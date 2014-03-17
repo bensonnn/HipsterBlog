@@ -54,8 +54,10 @@ get "/posts/:id" do
 end
 
 post "/get_rating" do
-  # p params
-  # nil
-  HipsterRater::Post.raw_score(params[:text]).to_s
+
+  # HipsterRater::Post.raw_score(params[:text]).to_s
+
+  p params[:arr]
+
 end
 
