@@ -28,6 +28,16 @@ module HipsterRater
       word_count == 0 ? 0 : (hip - unhip) * 100 / word_count
     end
 
+    def self.raw_score_array(words_array)
+      word_count = words_array.count
+      word_objs = words_array.map do |word|
+        Word.find_by(word: word)
+      end.compact
+      raw_count = word_objs.map{|word| word.is_hipster ? 1 : -1 }.reduce(:+)
+
+      word_count == 0 ? 0 : raw_count * 100 / word_count
+    end
+
   end
 end
 
