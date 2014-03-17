@@ -34,7 +34,7 @@ module HipsterRater
         Word.find_by(word: word)
       end.compact
       raw_count = word_objs.map{|word| word.is_hipster ? 1 : -1 }.reduce(:+)
-
+      raw_count ||= 0
       word_count == 0 ? 0 : raw_count * 100 / word_count
     end
 
